@@ -1,3 +1,4 @@
+---
 name: 每周复盘
 about: 大模型学习每周总结
 title: "[复盘] 第X周 - 阶段X"
@@ -36,3 +37,4 @@ body:
       placeholder: 掌握Transformer架构并实现Encoder
     validations:
       required: true
+---

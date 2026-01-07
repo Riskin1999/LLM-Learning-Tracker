@@ -1,77 +1,67 @@
-name: 每日打卡
-description: 大模型学习每日进度记录
-title: "[打卡] 第X周 DayX - YYYY-MM-DD"
-labels: 
-  - 阶段1
-  - 每日打卡
-assignees: []
+name: "📅 每日打卡"
+description: "大模型训练与推理 3个月计划每日打卡"
+title: "[Check-in]: YYYY-MM-DD 第 X 天"
+labels: ["daily-checkin"]
 body:
-  - type: input  # 核心：用input替代Date类型（GitHub不支持Date原生类型）
+  - type: markdown
+    attributes:
+      value: |
+        ## 🚀 保持专注，今日事今日毕！
+
+  - type: input
     id: date
     attributes:
-      label: 日期
-      description: 填写学习当天的日期，格式为YYYY-MM-DD
-      placeholder: 2026-01-07
+      label: "当前日期与天数"
+      placeholder: "例如：2025-09-03 | Day 5"
     validations:
       required: true
+
   - type: input
-    id: week
+    id: topic
     attributes:
-      label: 周次
-      description: 填写当前学习周次，格式为「第X周 DayX」
-      placeholder: 第1周 Day1
+      label: "今日学习主题"
+      placeholder: "例如：vLLM PagedAttention 源码阅读"
     validations:
       required: true
+
   - type: textarea
-    id: tasks
+    id: notes
     attributes:
-      label: 今日完成任务（对应周计划）
-      description: 逐条列出今日完成的核心学习任务，与周计划对应
-      placeholder: |
-        1. 线性代数：推导SVD分解步骤
-        2. Python：手动实现Adam优化器
+      label: "📝 核心知识笔记"
+      description: "用三句话概括今天最核心的收获"
+      placeholder: "1. ...\n2. ...\n3. ..."
     validations:
       required: true
+
   - type: textarea
-    id: problems
+    id: code_experiment
     attributes:
-      label: 遇到的问题
-      description: 如实记录今日学习中遇到的技术难点、报错等
-      placeholder: SVD分解中特征值排序逻辑不清晰
-    validations:
-      required: false
+      label: "💻 实践/实验记录"
+      description: "记录代码实现结果或实验数据（如显存占用、Loss 曲线）"
+      placeholder: "今日运行了 xxx 脚本，显存从 20G 优化至 15G..."
+
   - type: textarea
-    id: solutions
+    id: troubleshooting
     attributes:
-      label: 解决方法
-      description: 记录问题的解决过程、参考资料或暂时未解决的原因
-      placeholder: 查看李沐视频+推导3次公式，已理解
-    validations:
-      required: false
-  - type: input
-    id: duration
+      label: "⚠️ 避坑与报错"
+      description: "记录遇到的报错及解决方法"
+      placeholder: "报错信息：GLIBCXX_3.4.21 not found\n解决方法：..."
+
+  - type: dropdown
+    id: evaluation
     attributes:
-      label: 学习时长
-      description: 今日实际投入的学习时长（单位：小时）
-      placeholder: 2h
-    validations:
-      required: true
-  - type: input
-    id: code_link
-    attributes:
-      label: 今日代码链接
-      description: 仓库内对应代码/笔记的相对路径
-      placeholder: /code/week1/day1/adam.py
-    validations:
-      required: false
-  - type: checkboxes
-    id: progress
-    attributes:
-      label: 阶段进度
-      description: 勾选今日完成的进度项
+      label: "🌟 今日自我评价"
       options:
-        - label: 已完成今日目标
-        - label: 已整理笔记
-        - label: 已提交代码
+        - "⭐⭐⭐⭐⭐ (超额完成)"
+        - "⭐⭐⭐⭐ (顺利完成)"
+        - "⭐⭐⭐ (基本达成)"
+        - "⭐⭐ (进度滞后)"
+        - "⭐ (需要补课)"
     validations:
-      required: false
+      required: true
+
+  - type: input
+    id: next_step
+    attributes:
+      label: "📅 明日计划"
+      placeholder: "明天准备攻克..."

@@ -1,12 +1,12 @@
 name: 每日打卡
-description: 大模型学习每日进度记录  # about 替换为 description（YAML 模板标准字段）
+description: 大模型学习每日进度记录
 title: "[打卡] 第X周 DayX - YYYY-MM-DD"
 labels: 
-  - 阶段进度  # 替换含/的不合法标签名，可根据需要拆分为 阶段1/阶段2/阶段3
+  - 阶段1
   - 每日打卡
 assignees: []
 body:
-  - type: input
+  - type: input  # 核心：用input替代Date类型（GitHub不支持Date原生类型）
     id: date
     attributes:
       label: 日期
@@ -57,7 +57,7 @@ body:
     validations:
       required: true
   - type: input
-    id: code_link  # 替换短横线为下划线（ID 不支持特殊字符，避免解析失败）
+    id: code_link
     attributes:
       label: 今日代码链接
       description: 仓库内对应代码/笔记的相对路径

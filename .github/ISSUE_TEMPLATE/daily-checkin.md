@@ -1,3 +1,4 @@
+---
 name: 每日打卡
 about: 大模型学习每日进度记录
 title: "[打卡] 第X周 DayX - YYYY-MM-DD"
@@ -58,3 +59,4 @@ body:
         - label: 已完成今日目标
         - label: 已整理笔记
         - label: 已提交代码
+---

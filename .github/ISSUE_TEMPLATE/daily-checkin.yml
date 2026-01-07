@@ -1,51 +1,54 @@
-name: "📅 每日打卡"
-description: "大模型训练与推理 3个月计划每日打卡"
-title: "[Check-in]: YYYY-MM-DD 第 X 天"
-labels: ["daily-checkin"]
+name: "📅 大模型技术深度打卡"
+description: "包含训练/推理实验数据、自评系统与避坑指南"
+title: "[Check-in]: YYYY-MM-DD | Day X"
+labels: ["daily-checkin", "technical-notes"]
 body:
   - type: markdown
     attributes:
       value: |
-        ## 🚀 保持专注，今日事今日毕！
+        > "学习很苦，但坚持很酷" —— 每一条 Issue 都是你通往大模型专家的脚印。
 
   - type: input
-    id: date
+    id: session_info
     attributes:
-      label: "当前日期与天数"
-      placeholder: "例如：2025-09-03 | Day 5"
+      label: "📌 学习时段与时长"
+      placeholder: "例如：20:00 - 22:30 (2.5h)"
     validations:
       required: true
 
-  - type: input
-    id: topic
+  - type: checkboxes
+    id: tech_stack
     attributes:
-      label: "今日学习主题"
-      placeholder: "例如：vLLM PagedAttention 源码阅读"
+      label: "🛠️ 今日涉及技术栈"
+      options:
+        - label: "分布式训练 (DeepSpeed/Megatron/FSDP)"
+        - label: "微调技术 (LoRA/QLoRA/DPO)"
+        - label: "推理加速 (vLLM/Quantization/FlashAttention)"
+        - label: "架构理解 (Transformer/Mamba/MoE)"
+        - label: "数据工程 (Clean/Tokenize/Quality)"
+
+  - type: textarea
+    id: theory_deep_dive
+    attributes:
+      label: "🧠 原理深度内化 (Theory)"
+      description: "用自己的话解释今天最核心的一个技术点。"
+      placeholder: "例如：PagedAttention 是如何解决 KV Cache 碎片化的..."
     validations:
       required: true
 
   - type: textarea
-    id: notes
+    id: metrics
     attributes:
-      label: "📝 核心知识笔记"
-      description: "用三句话概括今天最核心的收获"
-      placeholder: "1. ...\n2. ...\n3. ..."
-    validations:
-      required: true
+      label: "📊 实验/实测指标 (Metrics)"
+      description: "如果是推理记录 TPS，如果是训练记录显存占用等。"
+      placeholder: "模型: Qwen-7B, 显存占用: 18.5GB, 吞吐量: 120 tokens/s"
 
   - type: textarea
-    id: code_experiment
+    id: blocker
     attributes:
-      label: "💻 实践/实验记录"
-      description: "记录代码实现结果或实验数据（如显存占用、Loss 曲线）"
-      placeholder: "今日运行了 xxx 脚本，显存从 20G 优化至 15G..."
-
-  - type: textarea
-    id: troubleshooting
-    attributes:
-      label: "⚠️ 避坑与报错"
-      description: "记录遇到的报错及解决方法"
-      placeholder: "报错信息：GLIBCXX_3.4.21 not found\n解决方法：..."
+      label: "🚧 阻塞点与根因分析 (Blocker)"
+      description: "记录遇到的 Bug 及其解决方法。"
+      placeholder: "报错：GLIBC_2.28 not found。根因：基础镜像版本过低。"
 
   - type: dropdown
     id: evaluation
@@ -60,8 +63,18 @@ body:
     validations:
       required: true
 
-  - type: input
-    id: next_step
+  - type: dropdown
+    id: mastery_level
     attributes:
-      label: "📅 明日计划"
-      placeholder: "明天准备攻克..."
+      label: "🎓 核心知识掌握度"
+      options:
+        - "完全精通 (能手写实现代码)"
+        - "深刻理解 (明白底层逻辑)"
+        - "基本掌握 (会使用相关工具)"
+        - "初次接触 (仅了解概念)"
+
+  - type: textarea
+    id: tomorrow
+    attributes:
+      label: "🎯 下一步动作目标"
+      placeholder: "1. 实现 XXX 算子\n2. 阅读 XXX 论文"

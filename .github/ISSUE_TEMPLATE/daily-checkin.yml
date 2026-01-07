@@ -21,6 +21,8 @@ body:
     attributes:
       label: "🛠️ 今日涉及技术栈"
       options:
+        - label: "数学基础 (Mathematics Fundamental)"
+        - label: "代码基础 (Python Skills)"
         - label: "分布式训练 (DeepSpeed/Megatron/FSDP)"
         - label: "微调技术 (LoRA/QLoRA/DPO)"
         - label: "推理加速 (vLLM/Quantization/FlashAttention)"
